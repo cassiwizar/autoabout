@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.form{
+    border: 1px solid black;
+    background-color: #FFF;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+}
+
+.comandas{
+    cursor: pointer;    
+}
+
+h1 {
+    margin: 0;
+}
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.status-section {
+    margin-bottom: 30px;
+}
+.status-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #333;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn:hover {
+    background-color: #45a049;
+}
+.btn-danger {
+    background-color: #f44336;
+}
+.btn-danger:hover {
+    background-color: #e53935;
+}
+.order-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}

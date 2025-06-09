@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e8dee9;
+  }
+  
+  .topbar {
+    background-color: #111;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .reserva-box {
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    width: 90%;
+    max-width: 1000px;
+    padding: 0 0 2rem;
+  }
+  
+  .reserva-box h1 {
+    background: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .reserva-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .reserva-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+  }
+  
+  .reserva-form input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .reserva-form button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .mapa {
+    text-align: center;
+  }
+  
+  .mesas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .mesa {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .mesa:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+  }
+  
+  
+  .restaurant {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .table {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    background-image: url('/public/mesa1.PNG');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .table.selected {
+    background-color: rgba(255, 0, 0, 0.6); 
+    background-blend-mode: multiply;
+  }
+  
+  .table.occupied {
+    background-color: rgba(255, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    cursor: not-allowed;
+  }
