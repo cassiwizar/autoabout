@@ -15,9 +15,9 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/projetos', [ProjetosController::class, 'projetos'])->name('projetos');
-Route::get('/cadastro', [CadastroController::class, 'cadastro'])->name('cadastro');
-Route::post('/cadastro', [CadastroController::class, 'store'])->name('cadastro.store');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+ Route::get('/cadastro', [CadastroController::class, 'create'])->name('cadastro');
+Route::post('/cadastro', [CadastroController::class, 'store'])->name('cadastro.store');
 Route::resource('clientes', ClientesController::class);
 Route::get('/reserva', [reservaController::class, 'reserva'])->name('reserva');
- 
+  

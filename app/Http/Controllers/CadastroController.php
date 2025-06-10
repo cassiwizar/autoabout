@@ -2,33 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Dado;
+use Illuminate\Http\Request;
 
 class CadastroController extends Controller
 {
-    public function cadastro()
+    public function index()
+    {
+        $dados = Dado::all();
+        return view('cadastro', compact('dados'));
+    }
+
+    public function create()
     {
         return view('cadastro');
     }
+
     public function store(Request $request)
-        {
-        // Validação dos dados
-        $validatedData = $request->validate([
-            'email' => 'required|email|unique:dados,email',
-            'username' => 'required|string|max:255',
-            'senha' => 'required|string|min:6',
-        ]);
-    
-        // Criar um novo registro no banco de dados
-        Dado::create([
-            'email' => $validatedData['email'],
-            'nome' => $validatedData['username'],
-            'senha' => bcrypt($validatedData['senha']), // Criptografar a senha
-        ]);
-    
-        // Redirecionar com mensagem de sucesso
-        return redirect()->route('cadastro')->with('success', 'Cadastro realizado com sucesso!');
+    {
+        $dados = new Dado();
+        $dados->nome = $request->nome;
+        $dados->email = $request->email;
+        $dados->senha = $request->senha;
+        $dados->save();
+
+        return redirect()->route('cadastro')->with('success', 'Cadastro realizado com sucesso.');
+    }
+
+    public function show(string $id)
+    {
+        return view('show', ['dados' => Dado::findOrFail($id)]);
+    }
+
+    public function edit(string $id)
+    {
+        $dados = Dado::findOrFail($id);
+        return view('create', compact('dados'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $dados = Dado::findOrFail($id);
+        $dados->nome = $request->nome;
+        $dados->email = $request->email;
+        $dados->senha = $request->senha;
+        $dados->save();
+
+        return redirect()->route('cadastro')->with('success', 'Cadastro atualizado com sucesso.');
+    }
+
+    public function destroy(string $id)
+    {
+        $dados = Dado::findOrFail($id);
+        $dados->delete();
+
+        return redirect()->route('cadastro')->with('success', 'Cadastro excluído com sucesso.');
     }
 }
